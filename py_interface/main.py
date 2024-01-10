@@ -7,7 +7,7 @@ import data_store. data_store_tx_rx as db
 from gui.py_gui import *
 from controller.PID import PID
 
-port = 'COM5'
+port = '/dev/ttyACM0'
 baudrate = 115200
 timeout = 1.0
 
@@ -134,6 +134,8 @@ def controller():
 		print(f'ERROR  : Thread-3 {exception_e}')
 	finally:
 		print("INFO   : Thread-3 closed (Controller)")
+		db.thread_1_flag = False
+		db.thread_2_flag = False
 
 def btn_fun(ui):
 	try:
