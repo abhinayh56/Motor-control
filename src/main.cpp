@@ -62,19 +62,13 @@ void loop(){
 	double motor_1_voltage = 0;
 	double motor_1_current = 0;
 
-	// feedback
-	// enc_1_count     = millis();
-	// enc_1_angle     = (double)millis()/1000.0;
-	// enc_1_speed     = -9876.54321;
-	// motor_1_angle   = -1121;
-	// motor_1_speed   = -3141;
 	motor_1_voltage = 0.0;
 	motor_1_current = 0.0;
 	
+	// feedback
 	comm.send_data(enc_1_count, enc_1_angle, enc_1_speed, motor_1_angle, motor_1_speed, motor_1_voltage, motor_1_current);
 
 	// controller
-	// Serial.println(motor_1_angle);
 
 	// controller output
 	double v_percent = comm.receive_data();
