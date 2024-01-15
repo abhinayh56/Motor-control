@@ -3,11 +3,11 @@ import time
 import serial
 import struct
 import threading
-import data_store. data_store_tx_rx as db
+import data_store.data_store_tx_rx as db
 from gui.py_gui import *
 from controller.PID import PID
 
-port = 'COM5'
+port = '/dev/ttyACM0'
 baudrate = 115200
 timeout = 1.0
 
@@ -120,7 +120,9 @@ def controller():
 		while (db.thread_3_flag):
 			# print("INFO   : Thread-3 running (controller)")
 
-			u = db.ctrl_pid.calculate(db.pid_x0, db.rx_motor_angle)
+			# u = db.ctrl_pid.calculate(db.pid_x0, db.rx_motor_angle)
+			u1 = db.kp_x0*(db.pid_x0 - db.rx_motor_angle)
+			u = db.ctrl_pid.calculate(u1, db.rx_motor_speed)
 			db.tx_v_percent = u
 			print(db.pid_x0, db.rx_motor_angle)
 			# print(db.rx_enc_count, db.rx_enc_angle, db.rx_enc_speed, db.rx_motor_angle, db.rx_motor_speed, db.rx_motor_voltage, db.rx_motor_current)
@@ -134,6 +136,8 @@ def controller():
 		print(f'ERROR  : Thread-3 {exception_e}')
 	finally:
 		print("INFO   : Thread-3 closed (Controller)")
+		db.thread_1_flag = False
+		db.thread_2_flag = False
 
 def btn_fun(ui):
 	try:
@@ -150,6 +154,7 @@ def btn_fun_2(ui):
 	try:
 		if(ui.lineEdit_6.text()):
 			db.pid_x0 = float(ui.lineEdit_6.text())
+			db.kp_x0 = float(ui.lineEdit_7.text())
 	except:
 		pass
 

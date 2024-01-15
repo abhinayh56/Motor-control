@@ -19,6 +19,7 @@ pid_Kp = 0.0
 pid_Ki = 0.0
 pid_Kd = 0.0
 pid_u_max = 0.0
+kp_x0 = 0.0
 
 # pid setpoint
 pid_x0 = 0.0
