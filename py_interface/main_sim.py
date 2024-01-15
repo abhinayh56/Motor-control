@@ -3,6 +3,13 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from controller.PID import PID
 
+controller = PID()
+Kp = 10.0
+Ki = 0.0
+Kd = 0.0
+u_max = 999999.0
+controller.init(0.004, Kp, Ki, Kd, u_max)
+
 def motor_model(y, t, J, b, Kt, L, R, Ke):
     dth_dt, i = y
     X = np.array([dth_dt, i])
@@ -10,23 +17,22 @@ def motor_model(y, t, J, b, Kt, L, R, Ke):
     B = np.array([0, 1.0/L])
 
     dth_dt_0 = 100
-    K = 10
-    u = K * (dth_dt_0 - dth_dt)
+    u = controller.calculate(dth_dt_0, dth_dt)
     V = np.array([u, u])
     dX_dt = np.matmul(A, X) + np.multiply(B, V)
 
     return dX_dt
 
 def main():
-    J = 0.01
-    b = 0.1
-    Kt = 0.01
-    Ke = 0.01
-    R = 1.0
-    L = 0.1
+    J = 0.559
+    b = 0.989
+    Kt = 9.66
+    Ke = 9.66
+    R = 7.29
+    L = 0.282
 
     initial_conditions = [0.0, 0.0]
-    t = np.linspace(0, 10, 2500)
+    t = np.linspace(0, 5, 1250)
     solution = odeint(motor_model, initial_conditions, t, args=(J, b, Kt, L, R, Ke))
 
     angular_velocity, current = solution[:, 0], solution[:, 1]
