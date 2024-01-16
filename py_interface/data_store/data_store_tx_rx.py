@@ -13,6 +13,14 @@ rx_motor_current = 0.0
 # tx data
 tx_v_percent = 0.0
 
+# gui falags
+start_stop_flag = False
+open_loop_control_flag = False
+closed_loop_control_flag = False
+switch_2_angle_feedback_flag = False
+set_velocity_control = False
+set_position_control = False
+
 # feedback
 dth_dt    = 0.0
 th        = 0.0

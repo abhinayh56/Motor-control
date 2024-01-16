@@ -149,10 +149,9 @@ def btn_fun(ui):
 	except:
 		pass
 
-def btn_fun_2(ui):
+def fun_1(ui):
 	try:
-		if(ui.lineEdit_6.text()):
-			db.pid_x0 = float(ui.lineEdit_6.text())
+		pass
 	except:
 		pass
 
@@ -162,8 +161,19 @@ def gui_main():
 		MainWindow = QtWidgets.QMainWindow()
 		ui = Ui_MainWindow()
 		ui.setupUi(MainWindow)
-		ui.pushButton.clicked.connect(lambda: btn_fun(ui))
-		ui.pushButton_2.clicked.connect(lambda: btn_fun_2(ui))
+		ui.push_button_start_stop.connect(lambda: fun_1(ui))
+		ui.push_button_open_loop.connect(lambda: fun_2(ui))
+		ui.push_button_set_v_percent.connect(lambda: fun_3(ui))
+		ui.push_button_closed_loop.connect(lambda: fun_4(ui))
+		ui.push_button_set_alpha.connect(lambda: fun_5(ui))
+		ui.push_button_angle_feedback.connect(lambda: fun_6(ui))
+		ui.push_button_set_th0.connect(lambda: fun_7(ui))
+		ui.push_button_set_dth0_dt.connect(lambda: fun_8(ui))
+		ui.push_button_set_position_pid_param.connect(lambda: fun_9(ui))
+		ui.push_button_set_velocity_pid_param.connect(lambda: fun_10(ui))
+		ui.push_button_position_control.connect(lambda: fun_11(ui))
+		ui.push_button_velocity_control.connect(lambda: fun_12(ui))
+
 		MainWindow.show()
 		print("INFO   : Thread-4 started (GUI)")
 		sys.exit(app.exec_())
