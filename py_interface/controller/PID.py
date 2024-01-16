@@ -50,7 +50,7 @@ class PID:
 
         self.I = self.I + self.e*self.dt
 
-        self.I = self.integral_windup_1(self.I, self.u_max)
+        # self.I = self.integral_windup_1(self.I, self.u_max)
         # self.I = self.I - self.integral_windup_2(self.e, -0.1, 0.1) * self.e * self.dt
 
         if(self.start==True):
@@ -58,11 +58,10 @@ class PID:
             self.start = False
         else:
             self.D = (self.e - self.e_pre) / self.dt
-
-        self.e_pre = self.e
+            self.e_pre = self.e
 
         self.u = self.Kp*self.e + self.Ki*self.I + self.Kd*self.D
-        self.u = self.saturate(self.u, -self.u_max, self.u_max)
+        # self.u = self.saturate(self.u, -self.u_max, self.u_max)
         return self.u
     
     def merge(self, e_, I_):
