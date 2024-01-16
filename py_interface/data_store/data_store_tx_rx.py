@@ -13,20 +13,34 @@ rx_motor_current = 0.0
 # tx data
 tx_v_percent = 0.0
 
-# pid parameters
-pid_dt    = 1.0
-pid_Kp    = 0.0
-pid_Ki    = 0.0
-pid_Kd    = 0.0
-pid_u_max = 0.0
-pid_i_max = 0.0
-pid_fc    = 0.0
+# feedback
+dth_dt    = 0.0
+th        = 0.0
+alpha     = 0.0
+switch_1  = 0
 
-# pid setpoint
-pid_x0 = 0.0
+# setpoint
+th0      = 0.0
+dth0_dt  = 0.0
+switch_2 = 0
 
 # control system
-ctrl_pid = None
+ctrl_position = None
+ctrl_velocity = None
+
+pid_pos_dt    = 1.0
+pid_pos_Kp    = 0.0
+pid_pos_Ki    = 0.0
+pid_pos_Kd    = 0.0
+pid_pos_fc    = 0.0
+pid_pos_u_max = 0.0
+
+pid_vel_dt    = 1.0
+pid_vel_Kp    = 0.0
+pid_vel_Ki    = 0.0
+pid_vel_Kd    = 0.0
+pid_vel_fc    = 0.0
+pid_vel_u_max = 0.0
 
 # multithreading
 thread_1_freq = 1.0
