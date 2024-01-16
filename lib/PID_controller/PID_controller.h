@@ -2,7 +2,7 @@
 #define PID_CONTROLLER
 
 #include "Math_functions.h"
-#include "Filter.h"
+#include "Filter_LPF.h"
 
 class PID_controller{
 	public:
