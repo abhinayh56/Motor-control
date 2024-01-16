@@ -120,11 +120,10 @@ def controller():
 		while (db.thread_3_flag):
 			# print("INFO   : Thread-3 running (controller)")
 
-			# u = db.ctrl_pid.calculate(db.pid_x0, db.rx_motor_angle)
-			u1 = db.kp_x0*(db.pid_x0 - db.rx_motor_angle)
-			u = db.ctrl_pid.calculate(u1, db.rx_motor_speed)
+			u = db.ctrl_pid.calculate(db.pid_x0, db.rx_motor_speed)
+
 			db.tx_v_percent = u
-			print(db.pid_x0, db.rx_motor_angle)
+			print(db.pid_x0, db.rx_motor_speed) 
 			# print(db.rx_enc_count, db.rx_enc_angle, db.rx_enc_speed, db.rx_motor_angle, db.rx_motor_speed, db.rx_motor_voltage, db.rx_motor_current)
 
 			while ((time.time() - db.thread_3_time_last) < (1.0/db.thread_3_freq)):
@@ -154,7 +153,6 @@ def btn_fun_2(ui):
 	try:
 		if(ui.lineEdit_6.text()):
 			db.pid_x0 = float(ui.lineEdit_6.text())
-			db.kp_x0 = float(ui.lineEdit_7.text())
 	except:
 		pass
 

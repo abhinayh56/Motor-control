@@ -14,12 +14,13 @@ rx_motor_current = 0.0
 tx_v_percent = 0.0
 
 # pid parameters
-pid_dt = 1.0
-pid_Kp = 0.0
-pid_Ki = 0.0
-pid_Kd = 0.0
+pid_dt    = 1.0
+pid_Kp    = 0.0
+pid_Ki    = 0.0
+pid_Kd    = 0.0
 pid_u_max = 0.0
-kp_x0 = 0.0
+pid_i_max = 0.0
+pid_fc    = 0.0
 
 # pid setpoint
 pid_x0 = 0.0
