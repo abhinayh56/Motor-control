@@ -17,12 +17,12 @@ tx_v_percent = 0.0
 dth_dt    = 0.0
 th        = 0.0
 alpha     = 0.0
-switch_1  = 0
+switch_1  = False
 
 # setpoint
 th0      = 0.0
 dth0_dt  = 0.0
-switch_2 = 0
+switch_2 = False
 
 # control system
 ctrl_position = None
