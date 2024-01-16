@@ -71,13 +71,14 @@ float PI_controller::get_u(){
     return u;
 }
 
-void PI_controller::cal_u(float x0, float x){
+float PI_controller::cal_u(float x0, float x){
     float e = x0 - x;
     P = Kp*e;
     I = I + Ki*e*dt;
     I = math_fun.saturate(I,-I_max,I_max);
     u = P + I;
     u = math_fun.saturate(u,-u_max,u_max);
+    return u;
 }
 
 void PI_controller::reset(){

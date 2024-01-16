@@ -26,7 +26,7 @@ class PI_controller{
         float get_I();
         float get_u();
 
-        void cal_u(float x0, float x);
+        float cal_u(float x0, float x);
         void reset();
 
     private:

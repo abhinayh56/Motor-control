@@ -59,6 +59,8 @@ class PID_controller{
 		float I = 0.0;
 		float D = 0.0;
 		float u = 0.0;
+
+		bool start = true;
 };
 
 #endif

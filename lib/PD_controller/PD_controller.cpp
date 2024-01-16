@@ -107,6 +107,7 @@ float PD_controller::cal_u(float x0, float x, bool d_filter_=false){
     e_pre = e;
     u = P + D;
     u = math_fun.saturate(u,-u_max,u_max);
+    return u;
 }
 
 void PD_controller::reset(){
