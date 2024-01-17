@@ -373,6 +373,8 @@ def gui_main():
 		ui.push_button_position_control.clicked.connect(lambda: fun_11(ui))
 		ui.push_button_velocity_control.clicked.connect(lambda: fun_12(ui))
 
+		update_gui_fields(ui)
+
 		MainWindow.show()
 		print("INFO   : Thread-4 started (GUI)")
 		sys.exit(app.exec_())
