@@ -6,12 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>586</width>
-    <height>570</height>
+    <width>560</width>
+    <height>602</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Motor Control GUI</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon.png</normaloff>icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(236, 236, 236);
+background-color: rgb(221, 221, 221);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_8">
@@ -19,6 +33,9 @@
      <layout class="QGridLayout" name="gridLayout_7">
       <item row="0" column="0">
        <widget class="QPushButton" name="push_button_start_stop">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 179, 181);</string>
+        </property>
         <property name="text">
          <string>Start / Stop</string>
         </property>
@@ -26,6 +43,9 @@
       </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="push_button_open_loop">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 179, 181);</string>
+        </property>
         <property name="text">
          <string>Open Loop Control</string>
         </property>
@@ -41,10 +61,17 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="line_edit_v_percent"/>
+         <widget class="QLineEdit" name="line_edit_v_percent">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="0" column="2">
          <widget class="QPushButton" name="push_button_set_v_percent">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(144, 224, 237);</string>
+          </property>
           <property name="text">
            <string>Set V%</string>
           </property>
@@ -54,6 +81,9 @@
       </item>
       <item row="3" column="0">
        <widget class="QPushButton" name="push_button_closed_loop">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 179, 181);</string>
+        </property>
         <property name="text">
          <string>Closed Loop Control</string>
         </property>
@@ -71,15 +101,22 @@
         <item row="0" column="0">
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>alpha</string>
+           <string>fc (dth_dt)</string>
           </property>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="line_edit_alpha"/>
+         <widget class="QLineEdit" name="line_edit_alpha">
+          <property name="text">
+           <string>9999999999</string>
+          </property>
+         </widget>
         </item>
         <item row="0" column="2">
          <widget class="QPushButton" name="push_button_set_alpha">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(144, 224, 237);</string>
+          </property>
           <property name="text">
            <string>Set alpha</string>
           </property>
@@ -89,6 +126,9 @@
       </item>
       <item row="6" column="0">
        <widget class="QPushButton" name="push_button_angle_feedback">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(247, 179, 181);</string>
+        </property>
         <property name="text">
          <string>Switch to angle feedback</string>
         </property>
@@ -111,10 +151,17 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="line_edit_th0"/>
+         <widget class="QLineEdit" name="line_edit_th0">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="0" column="2">
          <widget class="QPushButton" name="push_button_set_th0">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(144, 224, 237);</string>
+          </property>
           <property name="text">
            <string>Set th0</string>
           </property>
@@ -128,10 +175,17 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="line_edit_dth0_dt"/>
+         <widget class="QLineEdit" name="line_edit_dth0_dt">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="2">
          <widget class="QPushButton" name="push_button_set_dth0_dt">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(144, 224, 237);</string>
+          </property>
           <property name="text">
            <string>Set dth0_dt</string>
           </property>
@@ -167,7 +221,11 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="line_edit_pid_position_dt"/>
+         <widget class="QLineEdit" name="line_edit_pid_position_dt">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </widget>
         </item>
         <item row="0" column="2">
          <widget class="QLabel" name="label_13">
@@ -177,7 +235,11 @@
          </widget>
         </item>
         <item row="0" column="3">
-         <widget class="QLineEdit" name="line_edit_pid_velocity_dt"/>
+         <widget class="QLineEdit" name="line_edit_pid_velocity_dt">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_8">
@@ -187,7 +249,11 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="line_edit_pid_position_kp"/>
+         <widget class="QLineEdit" name="line_edit_pid_position_kp">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="2">
          <widget class="QLabel" name="label_14">
@@ -197,7 +263,11 @@
          </widget>
         </item>
         <item row="1" column="3">
-         <widget class="QLineEdit" name="line_edit_pid_velocity_kp"/>
+         <widget class="QLineEdit" name="line_edit_pid_velocity_kp">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_9">
@@ -207,7 +277,11 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="line_edit_pid_position_ki"/>
+         <widget class="QLineEdit" name="line_edit_pid_position_ki">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="2" column="2">
          <widget class="QLabel" name="label_15">
@@ -217,7 +291,11 @@
          </widget>
         </item>
         <item row="2" column="3">
-         <widget class="QLineEdit" name="line_edit_pid_velocity_ki"/>
+         <widget class="QLineEdit" name="line_edit_pid_velocity_ki">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="label_10">
@@ -227,7 +305,11 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QLineEdit" name="line_edit_pid_position_kd"/>
+         <widget class="QLineEdit" name="line_edit_pid_position_kd">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="3" column="2">
          <widget class="QLabel" name="label_16">
@@ -237,7 +319,11 @@
          </widget>
         </item>
         <item row="3" column="3">
-         <widget class="QLineEdit" name="line_edit_pid_velocity_kd"/>
+         <widget class="QLineEdit" name="line_edit_pid_velocity_kd">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_11">
@@ -247,7 +333,11 @@
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QLineEdit" name="line_edit_pid_position_fc"/>
+         <widget class="QLineEdit" name="line_edit_pid_position_fc">
+          <property name="text">
+           <string>9999999999</string>
+          </property>
+         </widget>
         </item>
         <item row="4" column="2">
          <widget class="QLabel" name="label_17">
@@ -257,7 +347,11 @@
          </widget>
         </item>
         <item row="4" column="3">
-         <widget class="QLineEdit" name="line_edit_pid_velocity_fc"/>
+         <widget class="QLineEdit" name="line_edit_pid_velocity_fc">
+          <property name="text">
+           <string>9999999999</string>
+          </property>
+         </widget>
         </item>
         <item row="5" column="0">
          <widget class="QLabel" name="label_12">
@@ -267,7 +361,11 @@
          </widget>
         </item>
         <item row="5" column="1">
-         <widget class="QLineEdit" name="line_edit_pid_position_u_max"/>
+         <widget class="QLineEdit" name="line_edit_pid_position_u_max">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="5" column="2">
          <widget class="QLabel" name="label_18">
@@ -277,7 +375,11 @@
          </widget>
         </item>
         <item row="5" column="3">
-         <widget class="QLineEdit" name="line_edit_pid_velocity_u_max"/>
+         <widget class="QLineEdit" name="line_edit_pid_velocity_u_max">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -285,6 +387,9 @@
        <layout class="QGridLayout" name="gridLayout_6">
         <item row="0" column="0">
          <widget class="QPushButton" name="push_button_set_position_pid_param">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(144, 224, 237);</string>
+          </property>
           <property name="text">
            <string>Set Position Control Param</string>
           </property>
@@ -292,6 +397,9 @@
         </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="push_button_set_velocity_pid_param">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(144, 224, 237);</string>
+          </property>
           <property name="text">
            <string>Set Velocity Control Param</string>
           </property>
@@ -299,6 +407,9 @@
         </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="push_button_position_control">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(247, 179, 181);</string>
+          </property>
           <property name="text">
            <string>Position Control</string>
           </property>
@@ -306,6 +417,9 @@
         </item>
         <item row="1" column="1">
          <widget class="QPushButton" name="push_button_velocity_control">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(247, 179, 181);</string>
+          </property>
           <property name="text">
            <string>Velocity Control</string>
           </property>
@@ -322,7 +436,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>586</width>
+     <width>560</width>
      <height>21</height>
     </rect>
    </property>

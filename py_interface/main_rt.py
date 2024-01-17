@@ -7,7 +7,7 @@ import data_store.data_store_tx_rx as db
 from gui.py_gui import *
 from controller.PID import PID
 
-port = '/dev/ttyACM0'
+port = 'COM5'
 baudrate = 115200
 timeout = 1.0
 
@@ -26,6 +26,7 @@ def init_data_store():
 	db.thread_1_freq = 250.0
 	db.thread_2_freq = 250.0
 	db.thread_3_freq = 100.0
+
 	db.thread_1_flag = True
 	db.thread_2_flag = True
 	db.thread_3_flag = True
@@ -34,7 +35,36 @@ def init_data_store():
 	db.thread_2_time_last = time.time()
 	db.thread_3_time_last = time.time()
 
-	db.ctrl_pid = PID()
+	db.start_stop_flag              = False
+	db.open_loop_control_flag       = False
+	db.closed_loop_control_flag     = False
+	db.switch_2_angle_feedback_flag = False
+	db.set_velocity_control         = False
+	db.set_position_control         = False
+
+	db.alpha     = 0.0
+	db.switch_1  = False
+
+	db.th0      = 0.0
+	db.dth0_dt  = 0.0
+	db.switch_2 = False
+
+	db.ctrl_position = PID()
+	db.ctrl_velocity = PID()
+
+	db.pid_pos_dt    = 1.0
+	db.pid_pos_Kp    = 0.0
+	db.pid_pos_Ki    = 0.0
+	db.pid_pos_Kd    = 0.0
+	db.pid_pos_fc    = 0.0
+	db.pid_pos_u_max = 0.0
+
+	db.pid_vel_dt    = 1.0
+	db.pid_vel_Kp    = 0.0
+	db.pid_vel_Ki    = 0.0
+	db.pid_vel_Kd    = 0.0
+	db.pid_vel_fc    = 0.0
+	db.pid_vel_u_max = 0.0
 
 def byte4_2_int(byte4):
 	bytes_obj = bytes(byte4)
@@ -115,15 +145,15 @@ def communication_tx_main():
 def controller():
 	print("INFO   : Thread-3 started (controller)")
 	try: 
-		db.ctrl_pid.init(db.pid_dt, db.pid_Kp, db.pid_Ki, db.pid_Kd, db.pid_u_max)
+		# db.ctrl_pid.init(db.pid_dt, db.pid_Kp, db.pid_Ki, db.pid_Kd, db.pid_u_max)
 
 		while (db.thread_3_flag):
 			# print("INFO   : Thread-3 running (controller)")
 
-			u = db.ctrl_pid.calculate(db.pid_x0, db.rx_motor_speed)
+			# u = db.ctrl_pid.calculate(db.pid_x0, db.rx_motor_speed)
 
-			db.tx_v_percent = u
-			print(db.pid_x0, db.rx_motor_speed) 
+			# db.tx_v_percent = u
+			# print(db.pid_x0, db.rx_motor_speed) 
 			# print(db.rx_enc_count, db.rx_enc_angle, db.rx_enc_speed, db.rx_motor_angle, db.rx_motor_speed, db.rx_motor_voltage, db.rx_motor_current)
 
 			while ((time.time() - db.thread_3_time_last) < (1.0/db.thread_3_freq)):
@@ -138,22 +168,113 @@ def controller():
 		db.thread_1_flag = False
 		db.thread_2_flag = False
 
-def btn_fun(ui):
-	try:
-		db.pid_dt    = float(ui.lineEdit.text())
-		db.pid_Kp    = float(ui.lineEdit_2.text())
-		db.pid_Ki    = float(ui.lineEdit_3.text())
-		db.pid_Kd    = float(ui.lineEdit_4.text())
-		db.pid_u_max = float(ui.lineEdit_5.text())
-		db.ctrl_pid.set_param(db.pid_dt, db.pid_Kp, db.pid_Ki, db.pid_Kd, db.pid_u_max)
-	except:
-		pass
-
 def fun_1(ui):
 	try:
-		pass
-	except:
-		pass
+		db.start_stop_flag = not db.start_stop_flag
+		if(db.start_stop_flag==True):
+			ui.push_button_start_stop.setStyleSheet("background-color: rgb(169, 224, 176);")
+		else:
+			ui.push_button_start_stop.setStyleSheet("background-color: rgb(247, 179, 181);")
+	except Exception as e:
+		print(e)
+
+def fun_2(ui):
+	try:
+		db.open_loop_control_flag = not db.open_loop_control_flag
+		if(db.open_loop_control_flag==True):
+			ui.push_button_open_loop.setStyleSheet("background-color: rgb(169, 224, 176);")
+		else:
+			ui.push_button_open_loop.setStyleSheet("background-color: rgb(247, 179, 181);")
+	except Exception as e:
+		print(e)
+
+def fun_3(ui):
+	try:
+		db.tx_v_percent = float(ui.line_edit_v_percent.text())
+	except Exception as e:
+		print(e)
+
+def fun_4(ui):
+	try:
+		db.closed_loop_control_flag = not db.closed_loop_control_flag
+		if(db.closed_loop_control_flag==True):
+			ui.push_button_closed_loop.setStyleSheet("background-color: rgb(169, 224, 176);")
+		else:
+			ui.push_button_closed_loop.setStyleSheet("background-color: rgb(247, 179, 181);")
+	except Exception as e:
+		print(e)
+
+def fun_5(ui):
+	try:
+		db.alpha = float(ui.line_edit_alpha.text())
+	except Exception as e:
+		print(e)
+
+def fun_6(ui):
+	try:
+		db.switch_2_angle_feedback_flag = not db.switch_2_angle_feedback_flag
+		if(db.switch_2_angle_feedback_flag==True):
+			ui.push_button_angle_feedback.setStyleSheet("background-color: rgb(169, 224, 176);")
+		else:
+			ui.push_button_angle_feedback.setStyleSheet("background-color: rgb(247, 179, 181);")
+	except Exception as e:
+		print(e)
+
+def fun_7(ui):
+	try:
+		db.th0 = float(ui.line_edit_th0.text())
+	except Exception as e:
+		print(e)
+
+def fun_8(ui):
+	try:
+		db.dth0_dt = float(ui.line_edit_dth0_dt.text())
+	except Exception as e:
+		print(e)
+
+def fun_9(ui):
+	try:
+		db.pid_pos_dt    = float(ui.line_edit_pid_position_dt.text())
+		db.pid_pos_Kp    = float(ui.line_edit_pid_position_kp.text())
+		db.pid_pos_Ki    = float(ui.line_edit_pid_position_ki.text())
+		db.pid_pos_Kd    = float(ui.line_edit_pid_position_kd.text())
+		db.pid_pos_fc    = float(ui.line_edit_pid_position_fc.text())
+		db.pid_pos_u_max = float(ui.line_edit_pid_position_u_max.text())
+		db.ctrl_position.set_param(db.pid_pos_dt, db.pid_pos_Kp, db.pid_pos_Ki, db.pid_pos_Kd, db.pid_pos_fc, db.pid_pos_u_max)
+	except Exception as e:
+		print(e)
+
+def fun_10(ui):
+	try:
+		db.pid_vel_dt    = float(ui.line_edit_pid_velocity_dt.text())
+		db.pid_vel_Kp    = float(ui.line_edit_pid_velocity_kp.text())
+		db.pid_vel_Ki    = float(ui.line_edit_pid_velocity_ki.text())
+		db.pid_vel_Kd    = float(ui.line_edit_pid_velocity_kd.text())
+		db.pid_vel_fc    = float(ui.line_edit_pid_velocity_fc.text())
+		db.pid_vel_u_max = float(ui.line_edit_pid_velocity_u_max.text())
+		db.ctrl_velocity.set_param(db.pid_vel_dt, db.pid_vel_Kp, db.pid_vel_Ki, db.pid_vel_Kd, db.pid_vel_fc, db.pid_vel_u_max)
+	except Exception as e:
+		print(e)
+
+def fun_11(ui):
+	try:
+		db.set_position_control = not db.set_position_control
+		if(db.set_position_control==True):
+			ui.push_button_position_control.setStyleSheet("background-color: rgb(169, 224, 176);")
+		else:
+			ui.push_button_position_control.setStyleSheet("background-color: rgb(247, 179, 181);")
+	except Exception as e:
+		print(e)
+
+def fun_12(ui):
+	try:
+		db.set_velocity_control = not db.set_velocity_control
+		if(db.set_velocity_control==True):
+			ui.push_button_velocity_control.setStyleSheet("background-color: rgb(169, 224, 176);")
+		else:
+			ui.push_button_velocity_control.setStyleSheet("background-color: rgb(247, 179, 181);")
+	except Exception as e:
+		print(e)
 
 def gui_main():
 	try:
@@ -161,18 +282,18 @@ def gui_main():
 		MainWindow = QtWidgets.QMainWindow()
 		ui = Ui_MainWindow()
 		ui.setupUi(MainWindow)
-		ui.push_button_start_stop.connect(lambda: fun_1(ui))
-		ui.push_button_open_loop.connect(lambda: fun_2(ui))
-		ui.push_button_set_v_percent.connect(lambda: fun_3(ui))
-		ui.push_button_closed_loop.connect(lambda: fun_4(ui))
-		ui.push_button_set_alpha.connect(lambda: fun_5(ui))
-		ui.push_button_angle_feedback.connect(lambda: fun_6(ui))
-		ui.push_button_set_th0.connect(lambda: fun_7(ui))
-		ui.push_button_set_dth0_dt.connect(lambda: fun_8(ui))
-		ui.push_button_set_position_pid_param.connect(lambda: fun_9(ui))
-		ui.push_button_set_velocity_pid_param.connect(lambda: fun_10(ui))
-		ui.push_button_position_control.connect(lambda: fun_11(ui))
-		ui.push_button_velocity_control.connect(lambda: fun_12(ui))
+		ui.push_button_start_stop.clicked.connect(lambda: fun_1(ui))
+		ui.push_button_open_loop.clicked.connect(lambda: fun_2(ui))
+		ui.push_button_set_v_percent.clicked.connect(lambda: fun_3(ui))
+		ui.push_button_closed_loop.clicked.connect(lambda: fun_4(ui))
+		ui.push_button_set_alpha.clicked.connect(lambda: fun_5(ui))
+		ui.push_button_angle_feedback.clicked.connect(lambda: fun_6(ui))
+		ui.push_button_set_th0.clicked.connect(lambda: fun_7(ui))
+		ui.push_button_set_dth0_dt.clicked.connect(lambda: fun_8(ui))
+		ui.push_button_set_position_pid_param.clicked.connect(lambda: fun_9(ui))
+		ui.push_button_set_velocity_pid_param.clicked.connect(lambda: fun_10(ui))
+		ui.push_button_position_control.clicked.connect(lambda: fun_11(ui))
+		ui.push_button_velocity_control.clicked.connect(lambda: fun_12(ui))
 
 		MainWindow.show()
 		print("INFO   : Thread-4 started (GUI)")

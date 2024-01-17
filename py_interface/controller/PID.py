@@ -4,6 +4,7 @@ class PID:
         self.Kp = 0.0
         self.Ki = 0.0
         self.Kd = 0.0
+        self.fc = 0.0
         self.u_max = 0.0
         self.e = 0.0
         self.e_pre = 0.0
@@ -12,11 +13,12 @@ class PID:
         self.u = 0.0
         self.start = True
     
-    def init(self, dt_, Kp_, Ki_, Kd_, u_max_):
+    def init(self, dt_, Kp_, Ki_, Kd_, fc_, u_max_):
         self.dt = dt_
         self.Kp = Kp_
         self.Ki = Ki_
         self.Kd = Kd_
+        self.fc = fc_
         self.u_max = u_max_
         self.e = 0.0
         self.e_pre = 0.0
@@ -25,11 +27,12 @@ class PID:
         self.u = 0.0
         self.start = True
     
-    def set_param(self, dt_, Kp_, Ki_, Kd_, u_max_):
+    def set_param(self, dt_, Kp_, Ki_, Kd_, fc_, u_max_):
         self.dt = dt_
         self.Kp = Kp_
         self.Ki = Ki_
         self.Kd = Kd_
+        self.fc = fc_
         self.u_max = u_max_
 
     def reset(self):
@@ -37,6 +40,7 @@ class PID:
         self.Kp = 0.0
         self.Ki = 0.0
         self.Kd = 0.0
+        self.fc = 0.0
         self.u_max = 0.0
         self.e = 0.0
         self.e_pre = 0.0
