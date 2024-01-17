@@ -43,11 +43,9 @@ def init_data_store():
 	db.set_position_control         = False
 
 	db.alpha     = 0.0
-	db.switch_1  = False
 
 	db.th0      = 0.0
 	db.dth0_dt  = 0.0
-	db.switch_2 = False
 
 	db.ctrl_position = PID()
 	db.ctrl_velocity = PID()
@@ -56,15 +54,17 @@ def init_data_store():
 	db.pid_pos_Kp    = 0.0
 	db.pid_pos_Ki    = 0.0
 	db.pid_pos_Kd    = 0.0
-	db.pid_pos_fc    = 0.0
+	db.pid_pos_fc    = 9999999999999.0
 	db.pid_pos_u_max = 0.0
+	db.ctrl_position.set_param(db.pid_pos_dt, db.pid_pos_Kp, db.pid_pos_Ki, db.pid_pos_Kd, db.pid_pos_fc, db.pid_pos_u_max)
 
 	db.pid_vel_dt    = 1.0
 	db.pid_vel_Kp    = 0.0
 	db.pid_vel_Ki    = 0.0
 	db.pid_vel_Kd    = 0.0
-	db.pid_vel_fc    = 0.0
+	db.pid_vel_fc    = 9999999999999.0
 	db.pid_vel_u_max = 0.0
+	db.ctrl_velocity.set_param(db.pid_vel_dt, db.pid_vel_Kp, db.pid_vel_Ki, db.pid_vel_Kd, db.pid_vel_fc, db.pid_vel_u_max)
 
 def byte4_2_int(byte4):
 	bytes_obj = bytes(byte4)
@@ -145,22 +145,25 @@ def communication_tx_main():
 def controller():
 	print("INFO   : Thread-3 started (controller)")
 	try: 
-		# db.ctrl_pid.init(db.pid_dt, db.pid_Kp, db.pid_Ki, db.pid_Kd, db.pid_u_max)
-
 		while (db.thread_3_flag):
 			# print("INFO   : Thread-3 running (controller)")
+			
+			if(db.start_stop_flag==True):
+				if(db.closed_loop_control_flag==True):
+					if(db.set_position_control==True):
+						db.dth0_dt = db.ctrl_position.calculate(db.th0, db.th)
 
-			# u = db.ctrl_pid.calculate(db.pid_x0, db.rx_motor_speed)
-
-			# db.tx_v_percent = u
-			# print(db.pid_x0, db.rx_motor_speed) 
-			# print(db.rx_enc_count, db.rx_enc_angle, db.rx_enc_speed, db.rx_motor_angle, db.rx_motor_speed, db.rx_motor_voltage, db.rx_motor_current)
-
+					if(db.set_velocity_control==True):
+						db.tx_v_percent = db.ctrl_velocity.calculate(db.dth0_dt, db.dth_dt)
+					else:
+						db.tx_v_percent = 0.0
+			else:
+				db.tx_v_percent = 0.0
+						
 			while ((time.time() - db.thread_3_time_last) < (1.0/db.thread_3_freq)):
 				pass
 			# print("Thread-3 : ", 1.0/(time.time() - db.thread_3_time_last))
 			db.thread_3_time_last = time.time()
-			# print(db.rx_enc_angle)
 	except Exception as exception_e:
 		print(f'ERROR  : Thread-3 {exception_e}')
 	finally:
@@ -202,6 +205,31 @@ def update_ui_button_color(ui):
 	else:
 		ui.push_button_position_control.setStyleSheet(red_color)
 
+def update_gui_fields(ui):
+	_translate = QtCore.QCoreApplication.translate
+	ui.label_e_stop.setText(_translate("MainWindow", str(db.start_stop_flag)))
+	ui.label_open_loop_control.setText(_translate("MainWindow", str(db.open_loop_control_flag)))
+	ui.label_close_loop_control.setText(_translate("MainWindow", str(db.closed_loop_control_flag)))
+	ui.label_position_control.setText(_translate("MainWindow", str(db.set_position_control)))
+	ui.label_velocity_control.setText(_translate("MainWindow", str(db.set_velocity_control)))
+	ui.label_switch2anglefeed.setText(_translate("MainWindow", str(db.switch_2_angle_feedback_flag)))
+	
+	ui.label_pos_th0.setText(_translate("MainWindow", str(db.th0)))
+
+	ui.label_pos_kp.setText(_translate("MainWindow", str(db.pid_pos_Kp)))
+	ui.label_pos_ki.setText(_translate("MainWindow", str(db.pid_pos_Ki)))
+	ui.label_pos_kd.setText(_translate("MainWindow", str(db.pid_pos_Kd)))
+	ui.label_pos_fc.setText(_translate("MainWindow", str(db.pid_pos_fc)))
+	ui.label_pos_u_max.setText(_translate("MainWindow", str(db.pid_pos_u_max)))
+
+	ui.label_dth0_dt.setText(_translate("MainWindow", str(db.dth0_dt)))
+
+	ui.label_vel_kp.setText(_translate("MainWindow", str(db.pid_vel_Kp)))
+	ui.label_vel_ki.setText(_translate("MainWindow", str(db.pid_vel_Ki)))
+	ui.label_vel_kd.setText(_translate("MainWindow", str(db.pid_vel_Kd)))
+	ui.label_vel_fc.setText(_translate("MainWindow", str(db.pid_vel_fc)))
+	ui.label_vel_u_max.setText(_translate("MainWindow", str(db.pid_vel_u_max)))
+
 def fun_1(ui):
 	try:
 		db.start_stop_flag = not db.start_stop_flag
@@ -212,6 +240,7 @@ def fun_1(ui):
 			db.set_position_control         = False
 			db.set_velocity_control         = False
 		update_ui_button_color(ui)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
@@ -224,12 +253,14 @@ def fun_2(ui):
 			db.set_position_control         = False
 			db.set_velocity_control         = False
 		update_ui_button_color(ui)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
 def fun_3(ui):
 	try:
 		db.tx_v_percent = float(ui.line_edit_v_percent.text())
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
@@ -243,12 +274,14 @@ def fun_4(ui):
 			db.set_position_control         = False
 			db.set_velocity_control         = False
 		update_ui_button_color(ui)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
 def fun_5(ui):
 	try:
 		db.alpha = float(ui.line_edit_alpha.text())
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
@@ -257,18 +290,21 @@ def fun_6(ui):
 		if(db.start_stop_flag==True):
 			db.switch_2_angle_feedback_flag = not db.switch_2_angle_feedback_flag
 		update_ui_button_color(ui)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
 def fun_7(ui):
 	try:
 		db.th0 = float(ui.line_edit_th0.text())
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
 def fun_8(ui):
 	try:
 		db.dth0_dt = float(ui.line_edit_dth0_dt.text())
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
@@ -281,6 +317,7 @@ def fun_9(ui):
 		db.pid_pos_fc    = float(ui.line_edit_pid_position_fc.text())
 		db.pid_pos_u_max = float(ui.line_edit_pid_position_u_max.text())
 		db.ctrl_position.set_param(db.pid_pos_dt, db.pid_pos_Kp, db.pid_pos_Ki, db.pid_pos_Kd, db.pid_pos_fc, db.pid_pos_u_max)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
@@ -293,6 +330,7 @@ def fun_10(ui):
 		db.pid_vel_fc    = float(ui.line_edit_pid_velocity_fc.text())
 		db.pid_vel_u_max = float(ui.line_edit_pid_velocity_u_max.text())
 		db.ctrl_velocity.set_param(db.pid_vel_dt, db.pid_vel_Kp, db.pid_vel_Ki, db.pid_vel_Kd, db.pid_vel_fc, db.pid_vel_u_max)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
@@ -301,6 +339,7 @@ def fun_11(ui):
 		if(db.set_velocity_control==True):
 			db.set_position_control = not db.set_position_control
 		update_ui_button_color(ui)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 
@@ -311,6 +350,7 @@ def fun_12(ui):
 		if(db.set_velocity_control==False):
 			db.set_position_control         = False
 		update_ui_button_color(ui)
+		update_gui_fields(ui)
 	except Exception as e:
 		print(e)
 

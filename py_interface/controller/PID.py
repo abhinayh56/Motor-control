@@ -1,10 +1,12 @@
+from .filter_lpf import *
+
 class PID:
     def __init__(self):
-        self.dt = 0.0
+        self.dt = 1.0
         self.Kp = 0.0
         self.Ki = 0.0
         self.Kd = 0.0
-        self.fc = 0.0
+        self.fc = 9999999999999.9
         self.u_max = 0.0
         self.e = 0.0
         self.e_pre = 0.0
@@ -12,6 +14,8 @@ class PID:
         self.D = 0.0
         self.u = 0.0
         self.start = True
+        self.lpf = Filter_LPF()
+        self.lpf.set_param(self.dt, self.fc)
     
     def init(self, dt_, Kp_, Ki_, Kd_, fc_, u_max_):
         self.dt = dt_
@@ -26,6 +30,7 @@ class PID:
         self.D = 0.0
         self.u = 0.0
         self.start = True
+        self.lpf.set_param(self.dt, self.fc)
     
     def set_param(self, dt_, Kp_, Ki_, Kd_, fc_, u_max_):
         self.dt = dt_
@@ -34,13 +39,14 @@ class PID:
         self.Kd = Kd_
         self.fc = fc_
         self.u_max = u_max_
+        self.lpf.set_param(self.dt, self.fc)
 
     def reset(self):
-        self.dt = 0.0
+        self.dt = 1.0
         self.Kp = 0.0
         self.Ki = 0.0
         self.Kd = 0.0
-        self.fc = 0.0
+        self.fc = 9999999999999.9
         self.u_max = 0.0
         self.e = 0.0
         self.e_pre = 0.0
@@ -48,13 +54,14 @@ class PID:
         self.D = 0.0
         self.u = 0.0
         self.start = True
+        self.lpf.set_param(self.dt, self.fc)
 
     def calculate(self, x0, x):
         self.e = x0 - x
 
         self.I = self.I + self.e*self.dt
 
-        # self.I = self.integral_windup_1(self.I, self.u_max)
+        self.I = self.integral_windup_1(self.I, self.u_max)
         # self.I = self.I - self.integral_windup_2(self.e, -0.1, 0.1) * self.e * self.dt
 
         if(self.start==True):
@@ -63,6 +70,7 @@ class PID:
         else:
             self.D = (self.e - self.e_pre) / self.dt
             self.e_pre = self.e
+        self.D = self.lpf.calculate(self.D)
 
         self.u = self.Kp*self.e + self.Ki*self.I + self.Kd*self.D
         # self.u = self.saturate(self.u, -self.u_max, self.u_max)
@@ -110,3 +118,6 @@ class PID:
             return -1.0
         else:
             return 1.0
+
+if __name__ == "__main__":
+    test = PID()
