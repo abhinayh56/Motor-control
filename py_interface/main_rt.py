@@ -168,23 +168,62 @@ def controller():
 		db.thread_1_flag = False
 		db.thread_2_flag = False
 
+green_color = "background-color: rgb(169, 224, 176);"
+red_color   = "background-color: rgb(247, 179, 181);"
+
+def update_ui_button_color(ui):
+	if(db.start_stop_flag==True):
+		ui.push_button_start_stop.setStyleSheet(green_color)
+	else:
+		ui.push_button_start_stop.setStyleSheet(red_color)
+
+	if(db.open_loop_control_flag==True):
+		ui.push_button_open_loop.setStyleSheet(green_color)
+	else:
+		ui.push_button_open_loop.setStyleSheet(red_color)
+
+	if(db.closed_loop_control_flag==True):
+		ui.push_button_closed_loop.setStyleSheet(green_color)
+	else:
+		ui.push_button_closed_loop.setStyleSheet(red_color)
+
+	if(db.switch_2_angle_feedback_flag==True):
+		ui.push_button_angle_feedback.setStyleSheet(green_color)
+	else:
+		ui.push_button_angle_feedback.setStyleSheet(red_color)
+
+	if(db.set_velocity_control==True):
+		ui.push_button_velocity_control.setStyleSheet(green_color)
+	else:
+		ui.push_button_velocity_control.setStyleSheet(red_color)
+
+	if(db.set_position_control==True):
+		ui.push_button_position_control.setStyleSheet(green_color)
+	else:
+		ui.push_button_position_control.setStyleSheet(red_color)
+
 def fun_1(ui):
 	try:
 		db.start_stop_flag = not db.start_stop_flag
-		if(db.start_stop_flag==True):
-			ui.push_button_start_stop.setStyleSheet("background-color: rgb(169, 224, 176);")
-		else:
-			ui.push_button_start_stop.setStyleSheet("background-color: rgb(247, 179, 181);")
+		if(db.start_stop_flag==False):
+			db.open_loop_control_flag       = False
+			db.closed_loop_control_flag     = False
+			db.switch_2_angle_feedback_flag = False
+			db.set_position_control         = False
+			db.set_velocity_control         = False
+		update_ui_button_color(ui)
 	except Exception as e:
 		print(e)
 
 def fun_2(ui):
 	try:
-		db.open_loop_control_flag = not db.open_loop_control_flag
-		if(db.open_loop_control_flag==True):
-			ui.push_button_open_loop.setStyleSheet("background-color: rgb(169, 224, 176);")
-		else:
-			ui.push_button_open_loop.setStyleSheet("background-color: rgb(247, 179, 181);")
+		if(db.start_stop_flag==True):
+			db.open_loop_control_flag = not db.open_loop_control_flag
+		if(db.open_loop_control_flag == True):
+			db.closed_loop_control_flag     = False
+			db.set_position_control         = False
+			db.set_velocity_control         = False
+		update_ui_button_color(ui)
 	except Exception as e:
 		print(e)
 
@@ -196,11 +235,14 @@ def fun_3(ui):
 
 def fun_4(ui):
 	try:
-		db.closed_loop_control_flag = not db.closed_loop_control_flag
+		if(db.start_stop_flag==True):
+			db.closed_loop_control_flag = not db.closed_loop_control_flag
 		if(db.closed_loop_control_flag==True):
-			ui.push_button_closed_loop.setStyleSheet("background-color: rgb(169, 224, 176);")
+			db.open_loop_control_flag       = False
 		else:
-			ui.push_button_closed_loop.setStyleSheet("background-color: rgb(247, 179, 181);")
+			db.set_position_control         = False
+			db.set_velocity_control         = False
+		update_ui_button_color(ui)
 	except Exception as e:
 		print(e)
 
@@ -212,11 +254,9 @@ def fun_5(ui):
 
 def fun_6(ui):
 	try:
-		db.switch_2_angle_feedback_flag = not db.switch_2_angle_feedback_flag
-		if(db.switch_2_angle_feedback_flag==True):
-			ui.push_button_angle_feedback.setStyleSheet("background-color: rgb(169, 224, 176);")
-		else:
-			ui.push_button_angle_feedback.setStyleSheet("background-color: rgb(247, 179, 181);")
+		if(db.start_stop_flag==True):
+			db.switch_2_angle_feedback_flag = not db.switch_2_angle_feedback_flag
+		update_ui_button_color(ui)
 	except Exception as e:
 		print(e)
 
@@ -258,21 +298,19 @@ def fun_10(ui):
 
 def fun_11(ui):
 	try:
-		db.set_position_control = not db.set_position_control
-		if(db.set_position_control==True):
-			ui.push_button_position_control.setStyleSheet("background-color: rgb(169, 224, 176);")
-		else:
-			ui.push_button_position_control.setStyleSheet("background-color: rgb(247, 179, 181);")
+		if(db.set_velocity_control==True):
+			db.set_position_control = not db.set_position_control
+		update_ui_button_color(ui)
 	except Exception as e:
 		print(e)
 
 def fun_12(ui):
 	try:
-		db.set_velocity_control = not db.set_velocity_control
-		if(db.set_velocity_control==True):
-			ui.push_button_velocity_control.setStyleSheet("background-color: rgb(169, 224, 176);")
-		else:
-			ui.push_button_velocity_control.setStyleSheet("background-color: rgb(247, 179, 181);")
+		if(db.closed_loop_control_flag==True):
+			db.set_velocity_control = not db.set_velocity_control
+		if(db.set_velocity_control==False):
+			db.set_position_control         = False
+		update_ui_button_color(ui)
 	except Exception as e:
 		print(e)
 
