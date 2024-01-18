@@ -73,7 +73,7 @@ class PID:
         self.D = self.lpf.calculate(self.D)
 
         self.u = self.Kp*self.e + self.Ki*self.I + self.Kd*self.D
-        # self.u = self.saturate(self.u, -self.u_max, self.u_max)
+        self.u = self.saturate(self.u, -self.u_max, self.u_max)
         return self.u
     
     def merge(self, e_, I_):
