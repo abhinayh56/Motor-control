@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
+    <width>575</width>
     <height>570</height>
    </rect>
   </property>
@@ -385,16 +385,6 @@ background-color: rgb(221, 221, 221);</string>
       </item>
       <item row="11" column="0">
        <layout class="QGridLayout" name="gridLayout_6">
-        <item row="0" column="0">
-         <widget class="QPushButton" name="push_button_set_position_pid_param">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(144, 224, 237);</string>
-          </property>
-          <property name="text">
-           <string>Set Position Control Param</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="push_button_set_velocity_pid_param">
           <property name="styleSheet">
@@ -412,6 +402,16 @@ background-color: rgb(221, 221, 221);</string>
           </property>
           <property name="text">
            <string>Position Control</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="push_button_set_position_pid_param">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(144, 224, 237);</string>
+          </property>
+          <property name="text">
+           <string>Set Position Control Param</string>
           </property>
          </widget>
         </item>
@@ -733,7 +733,7 @@ background-color: rgb(221, 221, 221);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>564</width>
+     <width>575</width>
      <height>21</height>
     </rect>
    </property>
