@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1021</width>
-    <height>765</height>
+    <width>827</width>
+    <height>508</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,11 +52,43 @@
            <attribute name="title">
             <string>Model</string>
            </attribute>
+           <widget class="QPushButton" name="button_start_stop_model_identification">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 116, 116);</string>
+            </property>
+            <property name="text">
+             <string>Start / Stop</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_parameter">
            <attribute name="title">
             <string>Parameter</string>
            </attribute>
+           <widget class="QPushButton" name="button_start_stop_parameter_identification">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(100, 209, 84);</string>
+            </property>
+            <property name="text">
+             <string>Start / Stop</string>
+            </property>
+           </widget>
           </widget>
          </widget>
         </item>
@@ -82,13 +114,65 @@
            <attribute name="title">
             <string>Open loop</string>
            </attribute>
+           <widget class="QPushButton" name="button_start_stop_open_loop_control">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 116, 116);</string>
+            </property>
+            <property name="text">
+             <string>Start / Stop</string>
+            </property>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>40</y>
+              <width>272</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Voltage (%)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="line_edit_v_percent">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="button_set">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(125, 255, 177);</string>
+               </property>
+               <property name="text">
+                <string>Set</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_closed_loop">
            <attribute name="title">
             <string>Closed loop</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_4">
-            <item row="0" column="0">
+            <item row="0" column="1">
              <widget class="QTabWidget" name="tab_widget_4">
               <property name="font">
                <font>
@@ -97,7 +181,7 @@
                </font>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>2</number>
               </property>
               <property name="tabBarAutoHide">
                <bool>false</bool>
@@ -106,6 +190,214 @@
                <attribute name="title">
                 <string>Torque</string>
                </attribute>
+               <layout class="QGridLayout" name="gridLayout_10">
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="button_start_stop_torque_control">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 116, 116);</string>
+                  </property>
+                  <property name="text">
+                   <string>Start / Stop</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <layout class="QGridLayout" name="gridLayout_8">
+                  <item row="0" column="2">
+                   <widget class="QPushButton" name="pushButton">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="1">
+                   <widget class="QLineEdit" name="line_edit_i_max_torque">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_5">
+                    <property name="text">
+                     <string>Kp</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLineEdit" name="line_edit_fc_torque">
+                    <property name="text">
+                     <string>9999999999</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="2">
+                   <widget class="QPushButton" name="pushButton_7">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QPushButton" name="pushButton_2">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="2">
+                   <widget class="QPushButton" name="pushButton_8">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="line_edit_kp_torque">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="0">
+                   <widget class="QLabel" name="label_8">
+                    <property name="text">
+                     <string>I_max</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="label_10">
+                    <property name="text">
+                     <string>fc</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="1">
+                   <widget class="QLineEdit" name="line_edit_u_max_torque">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="line_edit_ki_torque">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QPushButton" name="pushButton_3">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_2">
+                    <property name="text">
+                     <string>x0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_6">
+                    <property name="text">
+                     <string>Ki</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_7">
+                    <property name="text">
+                     <string>Kd</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="0">
+                   <widget class="QLabel" name="label_9">
+                    <property name="text">
+                     <string>u_max</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="2">
+                   <widget class="QPushButton" name="pushButton_6">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QPushButton" name="pushButton_4">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_4">
+                    <property name="text">
+                     <string>Kff</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QPushButton" name="pushButton_5">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(125, 255, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="line_edit_kff_torque">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="line_edit_x0_torque">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QLineEdit" name="line_edit_kd_torque">
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="tab_velocity_control">
                <attribute name="title">
@@ -130,11 +422,640 @@
                    <attribute name="title">
                     <string>Method-1</string>
                    </attribute>
+                   <layout class="QGridLayout" name="gridLayout_19">
+                    <item row="0" column="0">
+                     <widget class="QPushButton" name="button_start_stop_velocity_control_1">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(255, 116, 116);</string>
+                      </property>
+                      <property name="text">
+                       <string>Start / Stop</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <layout class="QGridLayout" name="gridLayout_9">
+                      <item row="0" column="2">
+                       <widget class="QPushButton" name="pushButton_9">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="1">
+                       <widget class="QLineEdit" name="line_edit_i_max_vel_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_11">
+                        <property name="text">
+                         <string>Kp</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="1">
+                       <widget class="QLineEdit" name="line_edit_fc_vel_m1">
+                        <property name="text">
+                         <string>9999999999</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="2">
+                       <widget class="QPushButton" name="pushButton_10">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="2">
+                       <widget class="QPushButton" name="pushButton_11">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="7" column="2">
+                       <widget class="QPushButton" name="pushButton_12">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="line_edit_kp_vel_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="0">
+                       <widget class="QLabel" name="label_12">
+                        <property name="text">
+                         <string>I_max</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="0">
+                       <widget class="QLabel" name="label_13">
+                        <property name="text">
+                         <string>fc</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="7" column="1">
+                       <widget class="QLineEdit" name="line_edit_u_max_vel_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="line_edit_ki_vel_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="2">
+                       <widget class="QPushButton" name="pushButton_13">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_3">
+                        <property name="text">
+                         <string>x0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_14">
+                        <property name="text">
+                         <string>Ki</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="0">
+                       <widget class="QLabel" name="label_15">
+                        <property name="text">
+                         <string>Kd</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="7" column="0">
+                       <widget class="QLabel" name="label_16">
+                        <property name="text">
+                         <string>u_max</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="2">
+                       <widget class="QPushButton" name="pushButton_14">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="2">
+                       <widget class="QPushButton" name="pushButton_15">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_17">
+                        <property name="text">
+                         <string>Kff</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="2">
+                       <widget class="QPushButton" name="pushButton_16">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="line_edit_kff_vel_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="line_edit_x0_vel_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="1">
+                       <widget class="QLineEdit" name="line_edit_kd_vel_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
                   </widget>
                   <widget class="QWidget" name="tab_method_2">
                    <attribute name="title">
                     <string>Method-2</string>
                    </attribute>
+                   <layout class="QGridLayout" name="gridLayout_22">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_21">
+                      <item row="0" column="0">
+                       <widget class="QPushButton" name="button_start_stop_velocity_control_2">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(255, 116, 116);</string>
+                        </property>
+                        <property name="text">
+                         <string>Start / Stop</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <layout class="QGridLayout" name="gridLayout_20">
+                        <item row="0" column="0">
+                         <layout class="QGridLayout" name="gridLayout_11">
+                          <item row="0" column="2">
+                           <widget class="QPushButton" name="pushButton_25">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="1">
+                           <widget class="QLineEdit" name="line_edit_i_max1_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="label_26">
+                            <property name="text">
+                             <string>Kp</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="1">
+                           <widget class="QLineEdit" name="line_edit_fc1_vel_m2">
+                            <property name="text">
+                             <string>9999999999</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="2">
+                           <widget class="QPushButton" name="pushButton_26">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="QPushButton" name="pushButton_27">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="2">
+                           <widget class="QPushButton" name="pushButton_28">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="QLineEdit" name="line_edit_kp1_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="0">
+                           <widget class="QLabel" name="label_27">
+                            <property name="text">
+                             <string>I_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="0">
+                           <widget class="QLabel" name="label_28">
+                            <property name="text">
+                             <string>fc</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="1">
+                           <widget class="QLineEdit" name="line_edit_u_max1_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="1">
+                           <widget class="QLineEdit" name="line_edit_ki1_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="2">
+                           <widget class="QPushButton" name="pushButton_29">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label_29">
+                            <property name="text">
+                             <string>x0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="0">
+                           <widget class="QLabel" name="label_30">
+                            <property name="text">
+                             <string>Ki</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="0">
+                           <widget class="QLabel" name="label_31">
+                            <property name="text">
+                             <string>Kd</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="0">
+                           <widget class="QLabel" name="label_32">
+                            <property name="text">
+                             <string>u_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="2">
+                           <widget class="QPushButton" name="pushButton_30">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="2">
+                           <widget class="QPushButton" name="pushButton_31">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="label_33">
+                            <property name="text">
+                             <string>Kff</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="2">
+                           <widget class="QPushButton" name="pushButton_32">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QLineEdit" name="line_edit_kff1_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="QLineEdit" name="line_edit_x01_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="1">
+                           <widget class="QLineEdit" name="line_edit_kd1_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item row="0" column="1">
+                         <layout class="QGridLayout" name="gridLayout_12">
+                          <item row="0" column="2">
+                           <widget class="QPushButton" name="pushButton_33">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="1">
+                           <widget class="QLineEdit" name="line_edit_i_max2_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="label_34">
+                            <property name="text">
+                             <string>Kp</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="1">
+                           <widget class="QLineEdit" name="line_edit_fc2_vel_m2">
+                            <property name="text">
+                             <string>9999999999</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="2">
+                           <widget class="QPushButton" name="pushButton_34">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="QPushButton" name="pushButton_35">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="2">
+                           <widget class="QPushButton" name="pushButton_36">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="QLineEdit" name="line_edit_kp2_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="0">
+                           <widget class="QLabel" name="label_35">
+                            <property name="text">
+                             <string>I_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="0">
+                           <widget class="QLabel" name="label_36">
+                            <property name="text">
+                             <string>fc</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="1">
+                           <widget class="QLineEdit" name="line_edit_u_max2_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="1">
+                           <widget class="QLineEdit" name="line_edit_ki2_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="2">
+                           <widget class="QPushButton" name="pushButton_37">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label_37">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="text">
+                             <string>x0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="0">
+                           <widget class="QLabel" name="label_38">
+                            <property name="text">
+                             <string>Ki</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="0">
+                           <widget class="QLabel" name="label_39">
+                            <property name="text">
+                             <string>Kd</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="0">
+                           <widget class="QLabel" name="label_40">
+                            <property name="text">
+                             <string>u_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="2">
+                           <widget class="QPushButton" name="pushButton_38">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="2">
+                           <widget class="QPushButton" name="pushButton_39">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="label_41">
+                            <property name="text">
+                             <string>Kff</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="2">
+                           <widget class="QPushButton" name="pushButton_40">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QLineEdit" name="line_edit_kff2_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="QLineEdit" name="lineEdit_39">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="1">
+                           <widget class="QLineEdit" name="line_edit_kd2_vel_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
                   </widget>
                  </widget>
                 </item>
@@ -151,7 +1072,7 @@
                    <bool>true</bool>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <property name="elideMode">
                    <enum>Qt::ElideNone</enum>
@@ -166,16 +1087,1267 @@
                    <attribute name="title">
                     <string>Method-1</string>
                    </attribute>
+                   <layout class="QGridLayout" name="gridLayout_23">
+                    <item row="0" column="0">
+                     <widget class="QPushButton" name="button_start_stop_position_control_1">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(255, 116, 116);</string>
+                      </property>
+                      <property name="text">
+                       <string>Start / Stop</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <layout class="QGridLayout" name="gridLayout_13">
+                      <item row="0" column="2">
+                       <widget class="QPushButton" name="pushButton_41">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="1">
+                       <widget class="QLineEdit" name="line_edit_i_max1_pos_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_42">
+                        <property name="text">
+                         <string>Kp</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="1">
+                       <widget class="QLineEdit" name="line_edit_fc1_pos_m1">
+                        <property name="text">
+                         <string>9999999999</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="2">
+                       <widget class="QPushButton" name="pushButton_42">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="2">
+                       <widget class="QPushButton" name="pushButton_43">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="7" column="2">
+                       <widget class="QPushButton" name="pushButton_44">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="line_edit_kp1_pos_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="0">
+                       <widget class="QLabel" name="label_43">
+                        <property name="text">
+                         <string>I_max</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="0">
+                       <widget class="QLabel" name="label_44">
+                        <property name="text">
+                         <string>fc</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="7" column="1">
+                       <widget class="QLineEdit" name="line_edit_u_max1_pos_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="line_edit_ki1_pos_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="2">
+                       <widget class="QPushButton" name="pushButton_45">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_45">
+                        <property name="text">
+                         <string>x0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_46">
+                        <property name="text">
+                         <string>Ki</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="0">
+                       <widget class="QLabel" name="label_47">
+                        <property name="text">
+                         <string>Kd</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="7" column="0">
+                       <widget class="QLabel" name="label_48">
+                        <property name="text">
+                         <string>u_max</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="2">
+                       <widget class="QPushButton" name="pushButton_46">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="2">
+                       <widget class="QPushButton" name="pushButton_47">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_49">
+                        <property name="text">
+                         <string>Kff</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="2">
+                       <widget class="QPushButton" name="pushButton_48">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(125, 255, 177);</string>
+                        </property>
+                        <property name="text">
+                         <string>Set</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="line_edit_kff1_pos_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="line_edit_x01_pos_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="1">
+                       <widget class="QLineEdit" name="line_edit_kd1_pos_m1">
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
                   </widget>
                   <widget class="QWidget" name="tab_method_2">
                    <attribute name="title">
                     <string>Method-2</string>
                    </attribute>
+                   <layout class="QGridLayout" name="gridLayout_26">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_25">
+                      <item row="0" column="0">
+                       <widget class="QPushButton" name="button_start_stop_position_control_2">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(255, 116, 116);</string>
+                        </property>
+                        <property name="text">
+                         <string>Start / Stop</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <layout class="QGridLayout" name="gridLayout_24">
+                        <item row="0" column="0">
+                         <layout class="QGridLayout" name="gridLayout_14">
+                          <item row="0" column="2">
+                           <widget class="QPushButton" name="pushButton_49">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="1">
+                           <widget class="QLineEdit" name="line_edit_i_max1_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="label_50">
+                            <property name="text">
+                             <string>Kp</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="1">
+                           <widget class="QLineEdit" name="line_edit_fc1_pos_m2">
+                            <property name="text">
+                             <string>9999999999</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="2">
+                           <widget class="QPushButton" name="pushButton_50">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="QPushButton" name="pushButton_51">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="2">
+                           <widget class="QPushButton" name="pushButton_52">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="QLineEdit" name="line_edit_kp1_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="0">
+                           <widget class="QLabel" name="label_51">
+                            <property name="text">
+                             <string>I_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="0">
+                           <widget class="QLabel" name="label_52">
+                            <property name="text">
+                             <string>fc</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="1">
+                           <widget class="QLineEdit" name="line_edit_u_max1_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="1">
+                           <widget class="QLineEdit" name="line_edit_ki1_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="2">
+                           <widget class="QPushButton" name="pushButton_53">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label_53">
+                            <property name="text">
+                             <string>x0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="0">
+                           <widget class="QLabel" name="label_54">
+                            <property name="text">
+                             <string>Ki</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="0">
+                           <widget class="QLabel" name="label_55">
+                            <property name="text">
+                             <string>Kd</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="0">
+                           <widget class="QLabel" name="label_56">
+                            <property name="text">
+                             <string>u_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="2">
+                           <widget class="QPushButton" name="pushButton_54">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="2">
+                           <widget class="QPushButton" name="pushButton_55">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="label_57">
+                            <property name="text">
+                             <string>Kff</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="2">
+                           <widget class="QPushButton" name="pushButton_56">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QLineEdit" name="line_edit_kff1_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="QLineEdit" name="line_edit_x01_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="1">
+                           <widget class="QLineEdit" name="line_edit_kd1_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item row="0" column="1">
+                         <layout class="QGridLayout" name="gridLayout_15">
+                          <item row="0" column="2">
+                           <widget class="QPushButton" name="pushButton_57">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="1">
+                           <widget class="QLineEdit" name="line_edit_i_max2_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="label_58">
+                            <property name="text">
+                             <string>Kp</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="1">
+                           <widget class="QLineEdit" name="line_edit_fc2_pos_m2">
+                            <property name="text">
+                             <string>9999999999</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="2">
+                           <widget class="QPushButton" name="pushButton_58">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="QPushButton" name="pushButton_59">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="2">
+                           <widget class="QPushButton" name="pushButton_60">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="QLineEdit" name="line_edit_kp2_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="0">
+                           <widget class="QLabel" name="label_59">
+                            <property name="text">
+                             <string>I_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="0">
+                           <widget class="QLabel" name="label_60">
+                            <property name="text">
+                             <string>fc</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="1">
+                           <widget class="QLineEdit" name="line_edit_u_max2_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="1">
+                           <widget class="QLineEdit" name="line_edit_ki2_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="2">
+                           <widget class="QPushButton" name="pushButton_61">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label_61">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="text">
+                             <string>x0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="0">
+                           <widget class="QLabel" name="label_62">
+                            <property name="text">
+                             <string>Ki</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="0">
+                           <widget class="QLabel" name="label_63">
+                            <property name="text">
+                             <string>Kd</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="7" column="0">
+                           <widget class="QLabel" name="label_64">
+                            <property name="text">
+                             <string>u_max</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="2">
+                           <widget class="QPushButton" name="pushButton_62">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="2">
+                           <widget class="QPushButton" name="pushButton_63">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="label_65">
+                            <property name="text">
+                             <string>Kff</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="2">
+                           <widget class="QPushButton" name="pushButton_64">
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(125, 255, 177);</string>
+                            </property>
+                            <property name="text">
+                             <string>Set</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QLineEdit" name="line_edit_kff2_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="QLineEdit" name="lineEdit_63">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="1">
+                           <widget class="QLineEdit" name="line_edit_kd2_pos_m2">
+                            <property name="text">
+                             <string>0</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
                   </widget>
                   <widget class="QWidget" name="tab_method_3">
                    <attribute name="title">
                     <string>Method-3</string>
                    </attribute>
+                   <layout class="QGridLayout" name="gridLayout_28">
+                    <item row="0" column="0">
+                     <widget class="QPushButton" name="button_start_stop_position_control_3">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(255, 116, 116);</string>
+                      </property>
+                      <property name="text">
+                       <string>Start / Stop</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <layout class="QGridLayout" name="gridLayout_27">
+                      <item row="0" column="0">
+                       <layout class="QGridLayout" name="gridLayout_17">
+                        <item row="0" column="2">
+                         <widget class="QPushButton" name="pushButton_73">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="1">
+                         <widget class="QLineEdit" name="line_edit_i_max1_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="label_74">
+                          <property name="text">
+                           <string>Kp</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="1">
+                         <widget class="QLineEdit" name="line_edit_fc1_pos_m3">
+                          <property name="text">
+                           <string>9999999999</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="2">
+                         <widget class="QPushButton" name="pushButton_74">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="2">
+                         <widget class="QPushButton" name="pushButton_75">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="2">
+                         <widget class="QPushButton" name="pushButton_76">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QLineEdit" name="line_edit_kp1_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="0">
+                         <widget class="QLabel" name="label_75">
+                          <property name="text">
+                           <string>I_max</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="0">
+                         <widget class="QLabel" name="label_76">
+                          <property name="text">
+                           <string>fc</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="1">
+                         <widget class="QLineEdit" name="line_edit_u_max1_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="1">
+                         <widget class="QLineEdit" name="line_edit_ki1_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="2">
+                         <widget class="QPushButton" name="pushButton_77">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_77">
+                          <property name="text">
+                           <string>x0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
+                         <widget class="QLabel" name="label_78">
+                          <property name="text">
+                           <string>Ki</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="0">
+                         <widget class="QLabel" name="label_79">
+                          <property name="text">
+                           <string>Kd</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="0">
+                         <widget class="QLabel" name="label_80">
+                          <property name="text">
+                           <string>u_max</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="2">
+                         <widget class="QPushButton" name="pushButton_78">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="2">
+                         <widget class="QPushButton" name="pushButton_79">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_81">
+                          <property name="text">
+                           <string>Kff</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="2">
+                         <widget class="QPushButton" name="pushButton_80">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="line_edit_kff1_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="line_edit_x01_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="1">
+                         <widget class="QLineEdit" name="line_edit_kd1_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="0" column="1">
+                       <layout class="QGridLayout" name="gridLayout_16">
+                        <item row="0" column="2">
+                         <widget class="QPushButton" name="pushButton_65">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="1">
+                         <widget class="QLineEdit" name="line_edit_i_max2_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="label_66">
+                          <property name="text">
+                           <string>Kp</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="1">
+                         <widget class="QLineEdit" name="line_edit_fc2_pos_m3">
+                          <property name="text">
+                           <string>9999999999</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="2">
+                         <widget class="QPushButton" name="pushButton_66">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="2">
+                         <widget class="QPushButton" name="pushButton_67">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="2">
+                         <widget class="QPushButton" name="pushButton_68">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QLineEdit" name="line_edit_kp2_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="0">
+                         <widget class="QLabel" name="label_67">
+                          <property name="text">
+                           <string>I_max</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="0">
+                         <widget class="QLabel" name="label_68">
+                          <property name="text">
+                           <string>fc</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="1">
+                         <widget class="QLineEdit" name="line_edit_u_max2_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="1">
+                         <widget class="QLineEdit" name="line_edit_ki2_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="2">
+                         <widget class="QPushButton" name="pushButton_69">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_69">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="text">
+                           <string>x0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
+                         <widget class="QLabel" name="label_70">
+                          <property name="text">
+                           <string>Ki</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="0">
+                         <widget class="QLabel" name="label_71">
+                          <property name="text">
+                           <string>Kd</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="0">
+                         <widget class="QLabel" name="label_72">
+                          <property name="text">
+                           <string>u_max</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="2">
+                         <widget class="QPushButton" name="pushButton_70">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="2">
+                         <widget class="QPushButton" name="pushButton_71">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_73">
+                          <property name="text">
+                           <string>Kff</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="2">
+                         <widget class="QPushButton" name="pushButton_72">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="line_edit_kff2_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="lineEdit_71">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="1">
+                         <widget class="QLineEdit" name="line_edit_kd2_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="0" column="2">
+                       <layout class="QGridLayout" name="gridLayout_18">
+                        <item row="0" column="2">
+                         <widget class="QPushButton" name="pushButton_81">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="1">
+                         <widget class="QLineEdit" name="line_edit_i_max3_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="label_82">
+                          <property name="text">
+                           <string>Kp</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="1">
+                         <widget class="QLineEdit" name="line_edit_fc3_pos_m3">
+                          <property name="text">
+                           <string>9999999999</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="2">
+                         <widget class="QPushButton" name="pushButton_82">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="2">
+                         <widget class="QPushButton" name="pushButton_83">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="2">
+                         <widget class="QPushButton" name="pushButton_84">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QLineEdit" name="line_edit_kp3_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="6" column="0">
+                         <widget class="QLabel" name="label_83">
+                          <property name="text">
+                           <string>I_max</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="0">
+                         <widget class="QLabel" name="label_84">
+                          <property name="text">
+                           <string>fc</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="1">
+                         <widget class="QLineEdit" name="line_edit_u_max3_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="1">
+                         <widget class="QLineEdit" name="line_edit_ki3_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="2">
+                         <widget class="QPushButton" name="pushButton_85">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_85">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="text">
+                           <string>x0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
+                         <widget class="QLabel" name="label_86">
+                          <property name="text">
+                           <string>Ki</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="0">
+                         <widget class="QLabel" name="label_87">
+                          <property name="text">
+                           <string>Kd</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="7" column="0">
+                         <widget class="QLabel" name="label_88">
+                          <property name="text">
+                           <string>u_max</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="2">
+                         <widget class="QPushButton" name="pushButton_86">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="2">
+                         <widget class="QPushButton" name="pushButton_87">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_89">
+                          <property name="text">
+                           <string>Kff</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="2">
+                         <widget class="QPushButton" name="pushButton_88">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: rgb(125, 255, 177);</string>
+                          </property>
+                          <property name="text">
+                           <string>Set</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="line_edit_kff3_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="lineEdit_87">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="1">
+                         <widget class="QLineEdit" name="line_edit_kd3_pos_m3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
                   </widget>
                  </widget>
                 </item>
@@ -192,12 +2364,15 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QPushButton" name="button_power">
+     <widget class="QPushButton" name="button_power_on_off">
       <property name="font">
        <font>
         <weight>75</weight>
         <bold>true</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 116, 116);</string>
       </property>
       <property name="text">
        <string>Power</string>
@@ -211,7 +2386,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1021</width>
+     <width>827</width>
      <height>21</height>
     </rect>
    </property>
