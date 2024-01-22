@@ -56,6 +56,10 @@ void PID_controller::set_Kd(float Kd_){
 	Kd = Kd_;
 }
 
+void PID_controller::set_Kff(float Kff_){
+	Kff = Kff_;
+}
+
 void PID_controller::set_dt(float dt_){
 	dt = dt_;
 }
@@ -86,6 +90,10 @@ float PID_controller::get_Ki(){
 
 float PID_controller::get_Kd(){
 	return Kd;
+}
+
+float PID_controller::get_Kff(){
+	return Kff;
 }
 
 float PID_controller::get_dt(){
@@ -135,7 +143,7 @@ float PID_controller::cal_u(float x0, float x, bool d_filter_){
 		D = lpf.get_y();
 	}
 	e_pre = e;
-	u = P + I + D;
+	u = Kff*x0 + P + I + D;
 	u = math_fun.saturate(u,-u_max,u_max);
 	return u;
 }

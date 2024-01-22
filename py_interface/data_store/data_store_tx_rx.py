@@ -36,11 +36,20 @@ button_status_position_cotrol_m1  = False
 button_status_position_cotrol_m2  = False
 button_status_position_cotrol_m3  = False
 
-tune_status_torque_control = False
-tune_status_velocity_control_m1 = False
+state_power               = False
+state_open_loop_control   = False
+state_torque_control      = False
+state_velocity_control_m1 = False
+state_velocity_control_m2 = False
+state_position_control_m1 = False
+state_position_control_m2 = False
+state_position_control_m3 = False
+
+tune_status_torque_control       = False
+tune_status_velocity_control_m1  = False
 tune_status_velocity_control_m21 = False
 tune_status_velocity_control_m22 = False
-tune_status_position_control_m1 = False
+tune_status_position_control_m1  = False
 tune_status_position_control_m21 = False
 tune_status_position_control_m22 = False
 tune_status_position_control_m31 = False

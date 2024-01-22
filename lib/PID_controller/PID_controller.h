@@ -17,6 +17,7 @@ class PID_controller{
 		void set_Kp(float Kp_);
 		void set_Ki(float Ki_);
 		void set_Kd(float Kd_);
+		void set_Kff(float Kff_);
 		void set_dt(float dt_);
 		void set_I_max(float I_max_);
 		void set_u_max(float u_max_);
@@ -26,6 +27,7 @@ class PID_controller{
 		float get_Kp();
 		float get_Ki();
 		float get_Kd();
+		float get_Kff();
 		float get_dt();
 		float get_I_max();
 		float get_u_max();
@@ -46,6 +48,7 @@ class PID_controller{
 
 		bool d_filter = false;
 
+		float Kff = 0.0;
 		float Kp = 0.0;
 		float Ki = 0.0;
 		float Kd = 0.0;

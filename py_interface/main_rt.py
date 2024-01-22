@@ -230,19 +230,69 @@ def update_gui_fields(ui):
 	ui.label_vel_fc.setText(_translate("MainWindow", str(db.pid_vel_fc)))
 	ui.label_vel_u_max.setText(_translate("MainWindow", str(db.pid_vel_u_max)))
 
+
 def fun_1(ui):
-	try:
-		db.start_stop_flag = not db.start_stop_flag
-		if(db.start_stop_flag==False):
-			db.open_loop_control_flag       = False
-			db.closed_loop_control_flag     = False
-			db.switch_2_angle_feedback_flag = False
-			db.set_position_control         = False
-			db.set_velocity_control         = False
-		update_ui_button_color(ui)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
+	db.state_power = not db.state_power
+def fun_2(ui):
+	db.state_open_loop_control = not db.state_open_loop_control
+def fun_3(ui):
+	db.state_torque_control = not db.state_torque_control
+def fun_4(ui):
+	db.state_velocity_control_m1 = not db.state_velocity_control_m1
+def fun_5(ui):
+	db.state_velocity_control_m2 = not db.state_velocity_control_m2
+def fun_6(ui):
+	db.state_position_control_m1 = not db.state_position_control_m1
+def fun_7(ui):
+	db.state_position_control_m2 = not db.state_position_control_m2
+def fun_8(ui):
+	db.state_position_control_m3 = not db.state_position_control_m3
+
+def fun_9(ui):
+	db.tune_status_torque_control = not db.tune_status_torque_control
+def fun_10(ui):
+	db.tune_status_velocity_control_m1 = not db.tune_status_velocity_control_m1
+def fun_11(ui):
+	db.tune_status_velocity_control_m21 = not db.tune_status_velocity_control_m21
+def fun_12(ui):
+	db.tune_status_velocity_control_m22 = not db.tune_status_velocity_control_m22
+def fun_13(ui):
+	db.tune_status_position_control_m1 = not db.tune_status_position_control_m1
+def fun_14(ui):
+	db.tune_status_position_control_m21 = not db.tune_status_position_control_m21
+def fun_15(ui):
+	db.tune_status_position_control_m22 = not db.tune_status_position_control_m22
+def fun_16(ui):
+	db.tune_status_position_control_m31 = not db.tune_status_position_control_m31
+def fun_17(ui):
+	db.tune_status_position_control_m32 = not db.tune_status_position_control_m32
+def fun_18(ui):
+	db.tune_status_position_control_m33 = not db.tune_status_position_control_m33
+
+def logic():
+	if(db.state_power==False):
+		pass
+	else:
+		if(db.state_open_loop_control==True):
+			pass
+		else:
+			if(db.state_torque_control==True):
+				pass
+			else:
+				if(db.state_velocity_control_m1==True):
+					pass
+				else:
+					if(db.state_velocity_control_m2==True):
+						pass
+					else:
+						if(db.state_position_control_m1==True):
+							pass
+						else:
+							if(db.state_position_control_m2==True):
+								pass
+							else:
+								if(db.state_position_control_m3==True):
+									pass
 
 def gui_main():
 	try:
@@ -250,6 +300,7 @@ def gui_main():
 		MainWindow = QtWidgets.QMainWindow()
 		ui = Ui_MainWindow()
 		ui.setupUi(MainWindow)
+		
 		ui.button_power_on_off.clicked.connect(lambda: fun_1(ui))
 		ui.button_start_stop_open_loop_control.clicked.connect(lambda: fun_2(ui))
 		ui.button_start_stop_torque_control.clicked.connect(lambda: fun_3(ui))
@@ -258,6 +309,8 @@ def gui_main():
 		ui.button_start_stop_position_control_1.clicked.connect(lambda: fun_6(ui))
 		ui.button_start_stop_position_control_2.clicked.connect(lambda: fun_7(ui))
 		ui.button_start_stop_position_control_3.clicked.connect(lambda: fun_8(ui))
+		
+
 		ui.button_tune_torque_control.clicked.connect(lambda: fun_9(ui))
 		ui.button_tune_velocity_control_m1.clicked.connect(lambda: fun_10(ui))
 		ui.button_tune_velocity_control_m2_1.clicked.connect(lambda: fun_11(ui))
