@@ -398,7 +398,7 @@
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QPushButton" name="pushButton">
+                 <widget class="QPushButton" name="button_tune_torque_control">
                   <property name="styleSheet">
                    <string notr="true">
 background-color: rgb(255, 116, 116);</string>
@@ -641,7 +641,7 @@ background-color: rgb(255, 116, 116);</string>
                      </widget>
                     </item>
                     <item row="1" column="0">
-                     <widget class="QPushButton" name="pushButton_2">
+                     <widget class="QPushButton" name="button_tune_velocity_control_m1">
                       <property name="styleSheet">
                        <string notr="true">background-color: rgb(255, 116, 116);</string>
                       </property>
@@ -670,7 +670,7 @@ background-color: rgb(255, 116, 116);</string>
                     <item row="1" column="0">
                      <layout class="QGridLayout" name="gridLayout_21">
                       <item row="0" column="0">
-                       <widget class="QPushButton" name="pushButton_3">
+                       <widget class="QPushButton" name="button_tune_velocity_control_m2_1">
                         <property name="styleSheet">
                          <string notr="true">background-color: rgb(255, 116, 116);</string>
                         </property>
@@ -680,7 +680,7 @@ background-color: rgb(255, 116, 116);</string>
                        </widget>
                       </item>
                       <item row="0" column="1">
-                       <widget class="QPushButton" name="pushButton_4">
+                       <widget class="QPushButton" name="button_tune_velocity_control_m2_2">
                         <property name="styleSheet">
                          <string notr="true">background-color: rgb(255, 116, 116);</string>
                         </property>
@@ -1336,7 +1336,7 @@ background-color: rgb(255, 116, 116);</string>
                      </widget>
                     </item>
                     <item row="1" column="0">
-                     <widget class="QPushButton" name="pushButton_5">
+                     <widget class="QPushButton" name="button_tune_position_control_m1">
                       <property name="styleSheet">
                        <string notr="true">background-color: rgb(255, 116, 116);</string>
                       </property>
@@ -1365,7 +1365,7 @@ background-color: rgb(255, 116, 116);</string>
                     <item row="1" column="0">
                      <layout class="QGridLayout" name="gridLayout_25">
                       <item row="0" column="1">
-                       <widget class="QPushButton" name="pushButton_7">
+                       <widget class="QPushButton" name="button_tune_position_control_m2_2">
                         <property name="styleSheet">
                          <string notr="true">background-color: rgb(255, 116, 116);</string>
                         </property>
@@ -1375,7 +1375,7 @@ background-color: rgb(255, 116, 116);</string>
                        </widget>
                       </item>
                       <item row="0" column="0">
-                       <widget class="QPushButton" name="pushButton_6">
+                       <widget class="QPushButton" name="button_tune_position_control_m2_1">
                         <property name="styleSheet">
                          <string notr="true">background-color: rgb(255, 116, 116);</string>
                         </property>
@@ -1811,7 +1811,7 @@ background-color: rgb(255, 116, 116);</string>
                     <item row="1" column="0">
                      <layout class="QGridLayout" name="gridLayout_28">
                       <item row="0" column="0">
-                       <widget class="QPushButton" name="pushButton_8">
+                       <widget class="QPushButton" name="button_tune_position_control_m3_1">
                         <property name="styleSheet">
                          <string notr="true">background-color: rgb(255, 116, 116);</string>
                         </property>
@@ -1821,7 +1821,7 @@ background-color: rgb(255, 116, 116);</string>
                        </widget>
                       </item>
                       <item row="0" column="1">
-                       <widget class="QPushButton" name="pushButton_9">
+                       <widget class="QPushButton" name="button_tune_position_control_m3_2">
                         <property name="styleSheet">
                          <string notr="true">background-color: rgb(255, 116, 116);</string>
                         </property>
@@ -1831,7 +1831,7 @@ background-color: rgb(255, 116, 116);</string>
                        </widget>
                       </item>
                       <item row="0" column="2">
-                       <widget class="QPushButton" name="pushButton_10">
+                       <widget class="QPushButton" name="button_tune_position_control_m3_3">
                         <property name="styleSheet">
                          <string notr="true">background-color: rgb(255, 116, 116);</string>
                         </property>

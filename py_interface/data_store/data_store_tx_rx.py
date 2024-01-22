@@ -36,6 +36,17 @@ button_status_position_cotrol_m1  = False
 button_status_position_cotrol_m2  = False
 button_status_position_cotrol_m3  = False
 
+tune_status_torque_control = False
+tune_status_velocity_control_m1 = False
+tune_status_velocity_control_m21 = False
+tune_status_velocity_control_m22 = False
+tune_status_position_control_m1 = False
+tune_status_position_control_m21 = False
+tune_status_position_control_m22 = False
+tune_status_position_control_m31 = False
+tune_status_position_control_m32 = False
+tune_status_position_control_m33 = False
+
 v_percent_open_loop = 0.0
 
 x0_torque = 0.0
