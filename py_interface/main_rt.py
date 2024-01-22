@@ -230,7 +230,6 @@ def update_gui_fields(ui):
 	ui.label_vel_fc.setText(_translate("MainWindow", str(db.pid_vel_fc)))
 	ui.label_vel_u_max.setText(_translate("MainWindow", str(db.pid_vel_u_max)))
 
-
 def fun_1(ui):
 	db.state_power = not db.state_power
 def fun_2(ui):
@@ -321,8 +320,6 @@ def gui_main():
 		ui.button_tune_position_control_m3_1.clicked.connect(lambda: fun_16(ui))
 		ui.button_tune_position_control_m3_2.clicked.connect(lambda: fun_17(ui))
 		ui.button_tune_position_control_m3_3.clicked.connect(lambda: fun_18(ui))
-
-
 
 		update_gui_fields(ui)
 
