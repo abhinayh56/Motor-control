@@ -65,6 +65,7 @@ fc1_velocity_m2 = 9999999999
 i_max1_velocity_m2 = 0.0
 u_max1_velocity_m2 = 0.0
 
+x02_velocity_m2 = 0.0
 kff2_velocity_m2 = 0.0
 kp2_velocity_m2 = 0.0
 ki2_velocity_m2 = 0.0
@@ -91,6 +92,7 @@ fc1_position_m2 = 9999999999
 i_max1_position_m2 = 0.0
 u_max1_position_m2 = 0.0
 
+x02_position_m2 = 0.0
 kff2_position_m2 = 0.0
 kp2_position_m2 = 0.0
 ki2_position_m2 = 0.0
@@ -108,6 +110,7 @@ fc1_position_m3 = 9999999999
 i_max1_position_m3 = 0.0
 u_max1_position_m3 = 0.0
 
+x02_position_m3 = 0.0
 kff2_position_m3 = 0.0
 kp2_position_m3 = 0.0
 ki2_position_m3 = 0.0
@@ -116,6 +119,7 @@ fc2_position_m3 = 9999999999
 i_max2_position_m3 = 0.0
 u_max2_position_m3 = 0.0
 
+x03_position_m3 = 0.0
 kff3_position_m3 = 0.0
 kp3_position_m3 = 0.0
 ki3_position_m3 = 0.0

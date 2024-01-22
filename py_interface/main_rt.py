@@ -4,7 +4,7 @@ import serial
 import struct
 import threading
 import data_store.data_store_tx_rx as db
-from gui.py_gui import *
+from gui.py_gui_2 import *
 from controller.PID import PID
 
 port = 'COM5'
@@ -244,134 +244,22 @@ def fun_1(ui):
 	except Exception as e:
 		print(e)
 
-def fun_2(ui):
-	try:
-		if(db.start_stop_flag==True):
-			db.open_loop_control_flag = not db.open_loop_control_flag
-		if(db.open_loop_control_flag == True):
-			db.closed_loop_control_flag     = False
-			db.set_position_control         = False
-			db.set_velocity_control         = False
-		update_ui_button_color(ui)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_3(ui):
-	try:
-		db.tx_v_percent = float(ui.line_edit_v_percent.text())
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_4(ui):
-	try:
-		if(db.start_stop_flag==True):
-			db.closed_loop_control_flag = not db.closed_loop_control_flag
-		if(db.closed_loop_control_flag==True):
-			db.open_loop_control_flag       = False
-		else:
-			db.set_position_control         = False
-			db.set_velocity_control         = False
-		update_ui_button_color(ui)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_5(ui):
-	try:
-		db.alpha = float(ui.line_edit_alpha.text())
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_6(ui):
-	try:
-		if(db.start_stop_flag==True):
-			db.switch_2_angle_feedback_flag = not db.switch_2_angle_feedback_flag
-		update_ui_button_color(ui)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_7(ui):
-	try:
-		db.th0 = float(ui.line_edit_th0.text())
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_8(ui):
-	try:
-		db.dth0_dt = float(ui.line_edit_dth0_dt.text())
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_9(ui):
-	try:
-		db.pid_pos_dt    = float(ui.line_edit_pid_position_dt.text())
-		db.pid_pos_Kp    = float(ui.line_edit_pid_position_kp.text())
-		db.pid_pos_Ki    = float(ui.line_edit_pid_position_ki.text())
-		db.pid_pos_Kd    = float(ui.line_edit_pid_position_kd.text())
-		db.pid_pos_fc    = float(ui.line_edit_pid_position_fc.text())
-		db.pid_pos_u_max = float(ui.line_edit_pid_position_u_max.text())
-		db.ctrl_position.set_param(db.pid_pos_dt, db.pid_pos_Kp, db.pid_pos_Ki, db.pid_pos_Kd, db.pid_pos_fc, db.pid_pos_u_max)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_10(ui):
-	try:
-		db.pid_vel_dt    = float(ui.line_edit_pid_velocity_dt.text())
-		db.pid_vel_Kp    = float(ui.line_edit_pid_velocity_kp.text())
-		db.pid_vel_Ki    = float(ui.line_edit_pid_velocity_ki.text())
-		db.pid_vel_Kd    = float(ui.line_edit_pid_velocity_kd.text())
-		db.pid_vel_fc    = float(ui.line_edit_pid_velocity_fc.text())
-		db.pid_vel_u_max = float(ui.line_edit_pid_velocity_u_max.text())
-		db.ctrl_velocity.set_param(db.pid_vel_dt, db.pid_vel_Kp, db.pid_vel_Ki, db.pid_vel_Kd, db.pid_vel_fc, db.pid_vel_u_max)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_11(ui):
-	try:
-		if(db.set_velocity_control==True):
-			db.set_position_control = not db.set_position_control
-		update_ui_button_color(ui)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
-def fun_12(ui):
-	try:
-		if(db.closed_loop_control_flag==True):
-			db.set_velocity_control = not db.set_velocity_control
-		if(db.set_velocity_control==False):
-			db.set_position_control         = False
-		update_ui_button_color(ui)
-		update_gui_fields(ui)
-	except Exception as e:
-		print(e)
-
 def gui_main():
 	try:
 		app = QtWidgets.QApplication(sys.argv)
 		MainWindow = QtWidgets.QMainWindow()
 		ui = Ui_MainWindow()
 		ui.setupUi(MainWindow)
-		ui.push_button_start_stop.clicked.connect(lambda: fun_1(ui))
-		ui.push_button_open_loop.clicked.connect(lambda: fun_2(ui))
-		ui.push_button_set_v_percent.clicked.connect(lambda: fun_3(ui))
-		ui.push_button_closed_loop.clicked.connect(lambda: fun_4(ui))
-		ui.push_button_set_alpha.clicked.connect(lambda: fun_5(ui))
-		ui.push_button_angle_feedback.clicked.connect(lambda: fun_6(ui))
-		ui.push_button_set_th0.clicked.connect(lambda: fun_7(ui))
-		ui.push_button_set_dth0_dt.clicked.connect(lambda: fun_8(ui))
-		ui.push_button_set_position_pid_param.clicked.connect(lambda: fun_9(ui))
-		ui.push_button_set_velocity_pid_param.clicked.connect(lambda: fun_10(ui))
-		ui.push_button_position_control.clicked.connect(lambda: fun_11(ui))
-		ui.push_button_velocity_control.clicked.connect(lambda: fun_12(ui))
+		ui.button_power_on_off.clicked.connect(lambda: fun_1(ui))
+		ui.button_start_stop_open_loop_control.clicked.connect(lambda: fun_2(ui))
+		ui.button_start_stop_torque_control.clicked.connect(lambda: fun_3(ui))
+		ui.button_start_stop_velocity_control_1.clicked.connect(lambda: fun_4(ui))
+		ui.button_start_stop_velocity_control_2.clicked.connect(lambda: fun_5(ui))
+		ui.button_start_stop_position_control_1.clicked.connect(lambda: fun_6(ui))
+		ui.button_start_stop_position_control_2.clicked.connect(lambda: fun_7(ui))
+		ui.button_start_stop_position_control_3.clicked.connect(lambda: fun_8(ui))
+
+
 
 		update_gui_fields(ui)
 
